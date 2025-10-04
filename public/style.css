@@ -1,0 +1,132 @@
+/* Body background */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-image: url('https://www.shutterstock.com/image-vector/natural-3d-podium-product-display-600nw-1963196971.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: #333;
+}
+
+/* Add semi-transparent overlay to improve readability */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.85); /* semi-transparent white */
+    z-index: -1;
+}
+
+/* General headings */
+h1, h2 {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+/* Form and button */
+form {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+input[type="file"] {
+    padding: 5px;
+    margin-right: 10px;
+}
+
+button {
+    padding: 8px 15px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+/* Progress bar */
+#progress {
+    width: 80%;
+    margin: 0 auto 20px auto;
+    background-color: #ddd;
+    border-radius: 20px;
+    height: 25px;
+    overflow: hidden;
+}
+
+#progressBar {
+    height: 100%;
+    width: 0%;
+    background-color: #4CAF50;
+    text-align: center;
+    line-height: 25px;
+    color: white;
+    font-weight: bold;
+    border-radius: 20px;
+    transition: width 0.3s;
+}
+
+/* Table styles */
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+    background-color: rgba(255, 255, 255, 0.95); /* semi-transparent table background */
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+    font-weight: bold;
+}
+
+tr:nth-child(even) {
+    background-color: rgba(242, 242, 242, 0.9);
+}
+
+tr:hover {
+    background-color: #d1e7dd;
+    cursor: pointer;
+}
+
+/* Chart container */
+canvas {
+    display: block;
+    margin: 20px auto;
+    max-width: 90%;
+}
+
+/* Download button centered */
+#downloadBtn {
+    display: block;          /* make it block so margin works */
+    margin: 20px auto;       /* top/bottom 20px, left/right auto to center */
+    background-color: #2196F3;
+    padding: 10px 20px;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-left: 600px;
+}
+
+#downloadBtn:hover {
+    background-color: #0b7dda;
+}
