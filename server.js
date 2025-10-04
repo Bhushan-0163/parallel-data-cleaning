@@ -1,21 +1,25 @@
 const express = require('express');
 const multer = require('multer');
 const csv = require('fast-csv');
+const { Readable } = require('stream');
 
 const app = express();
-const PORT = 3000;
 
-// Multer setup (memory storage to avoid file system issues)
+// ✅ Use Render's PORT or fallback to 3000 locally
+const PORT = process.env.PORT || 3000;
+
+// Multer setup (memory storage)
 const upload = multer({ storage: multer.memoryStorage() });
 
+// Serve static files from 'public'
 app.use(express.static('public'));
 
+// Upload and clean CSV
 app.post('/upload', upload.single('csvfile'), (req, res) => {
     if (!req.file) return res.status(400).send('No file uploaded');
 
     const results = [];
-
-    const bufferStream = require('stream').Readable.from(req.file.buffer);
+    const bufferStream = Readable.from(req.file.buffer);
 
     bufferStream
         .pipe(csv.parse({ headers: true }))
@@ -41,4 +45,7 @@ app.post('/upload', upload.single('csvfile'), (req, res) => {
         });
 });
 
-app.listen(PORT, () => console.log(`Server running at http://localhost:${PORT}`));
+// Start server
+app.listen(PORT, () => {
+    console.log(`Server running on port ${PORT}`);
+});
